@@ -20,7 +20,7 @@ public class MessageListener {
 
     @KafkaListener(topics = "kafka.topic", groupId = "com.example")
     public void messageReceived(KafkaMessage message) {
-        String id = messageService.save(message);
+        messageService.save(message);
         emailService.sendEmail(message.getEmail(), message.getSubject(), message.getText());
     }
 

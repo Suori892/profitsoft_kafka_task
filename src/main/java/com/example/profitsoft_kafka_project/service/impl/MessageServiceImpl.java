@@ -9,7 +9,6 @@ import com.example.profitsoft_kafka_project.service.interfaces.MessageService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class MessageServiceImpl implements MessageService {
@@ -35,7 +34,7 @@ public class MessageServiceImpl implements MessageService {
         return repository.findAllByMessageStatus(Status.FAILED)
                 .stream()
                 .map(this::convertMessageToDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private DetailedMessageDto convertMessageToDto(Message message) {

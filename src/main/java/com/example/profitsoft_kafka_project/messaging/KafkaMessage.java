@@ -1,7 +1,5 @@
 package com.example.profitsoft_kafka_project.messaging;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.extern.jackson.Jacksonized;
