@@ -13,20 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/email-service")
 public class MessageController {
     private final KafkaTemplate<String, KafkaMessage> operations;
-
     @Value("${kafka.topic}")
     private String sendEmailTopic;
-
     public MessageController(KafkaTemplate<String, KafkaMessage> operations) {
         this.operations = operations;
     }
-
-
     @PostMapping
     public void sendEmail(@RequestBody MessageDto messageDto) {
         operations.send(sendEmailTopic, messageDto.getSubject(), convertToKafkaMessage(messageDto));
     }
-
     private KafkaMessage convertToKafkaMessage(MessageDto messageDto) {
         return KafkaMessage.builder()
                 .subject(messageDto.getSubject())

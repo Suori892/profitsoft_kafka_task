@@ -3,12 +3,12 @@ package com.example.profitsoft_kafka_project.entity;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(indexName = "email_message")
+@Builder
 public class Message {
     @Id
     private String id;

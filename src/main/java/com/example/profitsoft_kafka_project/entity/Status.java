@@ -1,5 +1,5 @@
 package com.example.profitsoft_kafka_project.entity;
 
 public enum Status {
-    SENT, RECEIVED, FAILED
+    SENT, FAILED
 }

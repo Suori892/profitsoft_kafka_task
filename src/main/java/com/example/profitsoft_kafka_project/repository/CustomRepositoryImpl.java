@@ -7,13 +7,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class CustomRepositoryImpl implements CustomRepository{
     private final ElasticsearchOperations operations;
-
     public CustomRepositoryImpl(ElasticsearchOperations operations) {
         this.operations = operations;
     }
-
     @Override
-    public String save (Message message) {
-        return operations.save(message).getId();
+    public void save (Message message) {
+         operations.save(message);
     }
 }
